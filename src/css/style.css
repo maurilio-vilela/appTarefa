@@ -1,9 +1,38 @@
-body { background-color: blue; }
+body { 
+    background-color: #001253;
+    color: #fff;
+    font-size: 1rem;
+    font-family: "Roboto", "Trebuchet MS";
+}
+#listaTarefas{
+    display: flex;
+    flex-direction: column;
+    margin:10px 0px 0px 0px;
+    padding:0;
+}
+#listaTarefas li{
+    list-style: none;
+}
+.boxAction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 260px;
+    flex-wrap: wrap;
+}
+.boxAction button{
+    font-weight: 700;
+    font-size: 1.8rem;
+    padding: 1px 8px;
+}
+.boxAction input{
+    padding: 10px;
+}
 
 @media (max-width: 600px) {
-body { background-color: red; }
+
 }
 
 @media (min-width: 800px) {
-body { background-color: green; }
+
 }

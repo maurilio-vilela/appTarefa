@@ -6,44 +6,71 @@ body {
     font-size: 1rem;
     font-family: "Roboto", "Trebuchet MS";
 }
-#listaTarefas{
-    display: flex;
-    flex-direction: column;
-    margin:10px 0px 0px 0px;
-    padding:0;
-}
-#listaTarefas li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width:260px;
-    list-style: none;
-}
 .boxAction {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 260px;
+    width: 280px;
     flex-wrap: wrap;
 }
-.boxAction .adicionar{
+#listaTarefas{
+    display: flex;
+    flex-wrap: wrap;
+    margin:10px 0px 0px 0px;
+    padding:0;
+    width:280px;
+    
+}
+ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
+    width:100%;
+}
+ul li.naoRealizada{
+    list-style: '☐';
+    cursor: pointer;
+}
+ul li.realizada{
+    list-style: '☑';
+    cursor: pointer;
+    text-decoration: line-through;
+}
+.adicionar{
     font-weight: 700;
-    font-size: 1.8rem;
-    padding: 1px 8px;
+    font-size: 1.6rem;
+    padding: 3px 8px;
+    cursor: pointer;
+    background-color: #3b3486;
+    color: #FFF;
+    border:0;
+}
+.adicionar:hover{
+    background-color: #7743db;
 }
 .boxAction input{
     padding: 10px;
+    border:0;
 }
 .removeTarefa{
     font-weight: 700;
     font-size: 1.2rem;
     padding: 5px 10px;
+    background-color: #ff0050;
+    color: #FFF;
+    border:0;
+    cursor: pointer;
+}
+.removeTarefa:hover{
+    background-color: #ff0040;
 }
 .error{
     color: #ff0050;
     font-weight: 300;
     font-size: 0.8rem;
 }
+
 @media (max-width: 600px) {
 
 }

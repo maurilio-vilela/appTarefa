@@ -14,6 +14,7 @@ buttonAction.addEventListener("click", function() {
         const textTarefa = tarefa.value;
         tarefa.value = "";
         listaTarefas.appendChild(addTarefa(textTarefa));
+        tarefa.focus();
     }
     
 });
@@ -22,16 +23,28 @@ function addTarefa(textTarefa) {
     const elementSpan = document.createElement("span");
 
     elementSpan.setAttribute("id", "tarefa");
+    elementSpan.setAttribute("title", "Clique para marcar como realizada.");
     elementSpan.textContent = textTarefa;
+    elementLI.className = "naoRealizada";
     elementLI.appendChild(elementSpan);
     elementLI.appendChild(removeTarefa());
 
+    elementSpan.addEventListener("click", function(){
+        if(this.id === "tarefa"){
+            if(this.parentNode.className === "naoRealizada"){
+                this.parentNode.className = "realizada"
+            }else{
+                this.parentNode.className = "naoRealizada"
+            }
+        }
+    }
+    );
     return elementLI;
 }
 function removeTarefa(){
     const buttonRemove = document.createElement("button");
     buttonRemove.setAttribute("class", "removeTarefa");
-    buttonRemove.textContent = "X";
+    buttonRemove.textContent = "✘";
 
     buttonRemove.addEventListener("click", function() {
         listaTarefas.removeChild(this.parentNode);

@@ -11,8 +11,16 @@
 
   <section class="boxAction">
     <h1>Lista de tarefas</h1>
-    <input type="text" id="Tarefa" placeholder="Tarefa">
+    <input type="text" id="textTarefa" placeholder="Tarefa">
     <button id="addTarefa" class="adicionar">&#10010;</button>
+
+    <select name="suspensionList" id="suspensionList" hidden>
+      <option>--Selecione uma opção--</option>
+      <option>Marcar todas as tarefas</option>
+      <option>Desmarcar todas as tarefas</option>
+      <option>Limpar toda a lista de tarefas</option>
+    </select>
+
     <ul id="listaTarefas">
     
     </ul>

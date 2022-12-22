@@ -36,6 +36,7 @@ ul li.realizada{
     list-style: '☑';
     cursor: pointer;
     text-decoration: line-through;
+    color: #cccccc;
 }
 .adicionar{
     font-weight: 700;
@@ -49,10 +50,11 @@ ul li.realizada{
 .adicionar:hover{
     background-color: #7743db;
 }
-.boxAction input{
+.boxAction input, #suspensionList{
     padding: 10px;
     border:0;
 }
+
 .removeTarefa{
     font-weight: 700;
     font-size: 1.2rem;

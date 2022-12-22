@@ -1,6 +1,7 @@
 const listaTarefas = document.querySelector("#listaTarefas");
-const tarefa = document.querySelector("#Tarefa");
+const tarefa = document.querySelector("#textTarefa");
 const buttonAction = document.querySelector("#addTarefa");
+const suspensionList = document.querySelector("#suspensionList");
 
 buttonAction.addEventListener("click", function() {
     if(tarefa.value == ""){
@@ -14,6 +15,7 @@ buttonAction.addEventListener("click", function() {
         const textTarefa = tarefa.value;
         tarefa.value = "";
         listaTarefas.appendChild(addTarefa(textTarefa));
+        showHiddenList();
         tarefa.focus();
     }
     
@@ -48,8 +50,30 @@ function removeTarefa(){
 
     buttonRemove.addEventListener("click", function() {
         listaTarefas.removeChild(this.parentNode);
+        showHiddenList();
     });
 
     return buttonRemove;
 }
+function showHiddenList(){
+    const elementSpan = document.querySelector("#tarefa");
+    if (elementSpan === null){
+        suspensionList.setAttribute('hidden', 'hidden');
+    }else{
+        suspensionList.removeAttribute('hidden');
+    }
+}
 
+suspensionList.addEventListener('change', function(){
+    if(suspensionList.selectedIndex === 1 || suspensionList.selectedIndex === 2){
+        const vectorTarefas = listaTarefas.querySelectorAll("#tarefa");
+        for(let tarefa of vectorTarefas){
+            tarefa.dispatchEvent(new Event("click"));
+        }
+    } else if(suspensionList.selectedIndex === 3){
+        const vectorTarefas = listaTarefas.querySelectorAll(".removeTarefa");
+        for(let button of vectorTarefas){
+            button.dispatchEvent(new Event("click"));
+        }
+    }
+});
